@@ -39,4 +39,49 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+<!-- 			<plugin><artifactId>maven-antrun-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<configuration>
+							<tasks>
+								<copy file="${basedir}/weblogic.xml" tofile="${basedir}/WEB-INF/weblogic.xml"/>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>  -->
+			  <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <!-- here the phase you need -->
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/src/main/webapp/WEB-INF</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>${basedir}</directory>
+                  <filtering>true</filtering>
+                  <include>weblogic.xml</include>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+		</plugins>
+	</build>
 </project>
