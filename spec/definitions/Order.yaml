@@ -1,0 +1,32 @@
+type: object
+properties:
+  id:
+    description: Order ID
+    allOf:
+      - $ref: '#/definitions/Id'
+  petId:
+    description: Pet ID
+    allOf:
+      - $ref: '#/definitions/Id'
+  quantity:
+    type: integer
+    format: int32
+    minimum: 1
+    default: 1
+  shipDate:
+    description: Estimated ship date
+    type: string
+    format: date-time
+  status:
+    type: string
+    description: Order Status
+    enum:
+      - placed
+      - approved
+      - delivered
+  complete:
+    description: Indicates whenever order was completed or not
+    type: boolean
+    default: false
+xml:
+  name: Order

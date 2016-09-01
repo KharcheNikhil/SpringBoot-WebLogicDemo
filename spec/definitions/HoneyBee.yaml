@@ -1,0 +1,11 @@
+description: A representation of a honey bee
+allOf:
+  - $ref: '#/definitions/Pet'
+  - type: object
+    properties:
+      honeyPerDay:
+        type: number
+        description: Average amount of honey produced per day in ounces
+        example: 3.14
+    required:
+      - honeyPerDay

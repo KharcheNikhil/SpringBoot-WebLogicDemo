@@ -1,0 +1,11 @@
+{
+  "generator-openapi-repo": {
+    "importExistingSpec": false,
+    "name": "Test Open Api Doc",
+    "redocVersion": "v1.x.x",
+    "repo": "koolnik90/SpringBoot-WebLogicDemo",
+    "splitSpec": false,
+    "samples": true,
+    "installSwaggerUI": true
+  }
+}

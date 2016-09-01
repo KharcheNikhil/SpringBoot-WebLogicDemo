@@ -1,0 +1,47 @@
+type: object
+required:
+  - name
+  - photoUrls
+discriminator: petType
+properties:
+  petType:
+    description: Type of a pet
+    type: string
+  id:
+    description: Pet ID
+    allOf:
+      - $ref: '#/definitions/Id'
+  category:
+    description: Categories this pet belongs to
+    allOf:
+      - $ref: '#/definitions/Category'
+  name:
+    description: The name given to a pet
+    type: string
+    example: Guru
+  photoUrls:
+    description: The list of URL to a cute photos featuring pet
+    type: array
+    xml:
+      name: photoUrl
+      wrapped: true
+    items:
+      type: string
+      format: url
+  tags:
+    description: Tags attached to the pet
+    type: array
+    xml:
+      name: tag
+      wrapped: true
+    items:
+      $ref: '#/definitions/Tag'
+  status:
+    type: string
+    description: Pet status in the store
+    enum:
+      - available
+      - pending
+      - sold
+xml:
+  name: Pet

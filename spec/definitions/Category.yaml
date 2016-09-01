@@ -1,0 +1,12 @@
+type: object
+properties:
+  id:
+    description: Category ID
+    allOf:
+      - $ref: '#/definitions/Id'
+  name:
+    description: Category name
+    type: string
+    minLength: 1
+xml:
+  name: Category
